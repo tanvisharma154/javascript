@@ -1,30 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Html events </title>
+<meta charset="UTF-8">
+<title>DOM Events Practice</title>
+<style>
+body{
+background:black;
+color:white;
+font-family:Arial;
+}
+
+ul{
+list-style:none;
+}
+
+img{
+width:200px;
+margin:10px;
+cursor:pointer;
+border:3px solid white;
+}
+</style>
 </head>
-<body style ="background-color:black">
-    <h2>Image Event List</h2>
 
-<ul>
+<body>
+
+<h2>Image Event List (Click image to remove)</h2>
+
+<ul id="images">
+
 <li>
-<img id="img1" src="https://images.pexels.com/photos/29884349/pexels-photo-29884349.jpeg" width="200">
+<img id="img1" src="https://images.pexels.com/photos/29884349/pexels-photo-29884349.jpeg">
 </li>
 
 <li>
-<img id="img2" src="https://images.pexels.com/photos/892522/pexels-photo-892522.jpeg" width="200">
+<img id="bmw" src="https://images.pexels.com/photos/892522/pexels-photo-892522.jpeg">
 </li>
 
 <li>
-<img id="img3" src="https://images.pexels.com/photos/29831790/pexels-photo-29831790.jpeg" width="200">
+<img id="ferrari" src="https://images.pexels.com/photos/29831790/pexels-photo-29831790.jpeg">
 </li>
 
 <li>
-<img id="img4" src="https://images.pexels.com/photos/831475/pexels-photo-831475.jpeg" width="200">
+<img id="sportcar" src="https://images.pexels.com/photos/831475/pexels-photo-831475.jpeg">
 </li>
+
 </ul>
+
+<script>
+
+document.getElementById("images").addEventListener("click", function(event){
+
+console.log("Source Element:", event.target)
+console.log("Target Element:", event.currentTarget)
+
+if(event.target.tagName === "IMG"){
+
+alert("Image clicked")
+
+event.target.parentNode.remove()
+
+}
+
+})
+
+</script>
 
 </body>
 </html>

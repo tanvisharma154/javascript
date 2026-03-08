@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Color Generator</title>
+
+<style>
+body{
+    text-align:center;
+    font-family:Arial;
+    margin-top:100px;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+#colorCode{
+    font-size:22px;
+    margin-top:20px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Random Color Generator</h2>
+
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+
+<p id="colorCode">Color Code: #ffffff</p>
+
+<script>
+
+let interval;
+
+function generateColor(){
+
+    const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+
+    document.body.style.backgroundColor = randomColor;
+
+    document.getElementById("colorCode").textContent = "Color Code: " + randomColor;
+
+}
+
+document.getElementById("start").addEventListener("click", function(){
+
+    interval = setInterval(generateColor,1000);
+
+});
+
+document.getElementById("stop").addEventListener("click", function(){
+
+    clearInterval(interval);
+
+});
+
+</script>
+
+</body>
+</html>
