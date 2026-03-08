@@ -16,13 +16,11 @@ button{
     padding:10px 20px;
     margin:10px;
     font-size:16px;
-    cursor:pointer;
 }
 
 #colorCode{
     font-size:22px;
     margin-top:20px;
-    font-weight:bold;
 }
 </style>
 
@@ -39,7 +37,7 @@ button{
 
 <script>
 
-let interval;
+let interval = null;
 
 function generateColor(){
 
@@ -53,13 +51,16 @@ function generateColor(){
 
 document.getElementById("start").addEventListener("click", function(){
 
-    interval = setInterval(generateColor,1000);
+    if(interval === null){
+        interval = setInterval(generateColor,1000);
+    }
 
 });
 
 document.getElementById("stop").addEventListener("click", function(){
 
     clearInterval(interval);
+    interval = null;
 
 });
 
