@@ -64,3 +64,8 @@ promiseFive
     .then((res) => console.log(res))
     .catch((err) => console.log(err))
     .finally(() => console.log("Always runs"));
+   async function consumePromiseFive(){
+    const response = await promiseFive
+    console.log(response);
+   }
+   consumePromiseFive() 
